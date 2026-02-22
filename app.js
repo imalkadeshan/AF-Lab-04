@@ -1,14 +1,17 @@
+//1
 const fs = require('fs');
 fs.readFile('file.txt', 'utf8', function (err, data) {
     if (err) throw err;
     console.log(data);
 });
 
+//2
 fs.writeFile('file.txt', 'Hello World!', function (err) {
     if (err) throw err;
     console.log('File saved!');
 });
 
+//3
 const http = require('http');
 http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -16,7 +19,7 @@ http.createServer(function (req, res) {
     res.end();
 }).listen(8080);
 
-
+//4
 const https = require('https');
 https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
     let data = '';
@@ -32,5 +35,24 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
     console.log("Error: " + err.message);
 });
 
+//5
 const myModule = require('./my-module.js');
 console.log(myModule.myFunction()); 
+
+//6
+const myPromise = new Promise((resolve, reject) => {
+    
+const condition = false;
+
+  if (condition) { 
+    resolve('Success!'); 
+  } else { 
+    reject('Failure!'); 
+  } 
+}); 
+ 
+myPromise.then((result) => { 
+  console.log(result); 
+}).catch((error) => { 
+  console.log(error); 
+}); 
